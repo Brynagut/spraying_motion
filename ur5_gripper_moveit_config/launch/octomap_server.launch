@@ -1,0 +1,10 @@
+<launch>
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+    <param name="resolution" value="0.01" />
+    <param name="frame_id" type="string" value="world" />
+    <!-- maximum range to integrate (speedup!) -->
+    <param name="sensor_model/max_range" value="5.0" />
+    <!-- data source to integrate (PointCloud2) -->
+    <remap from="cloud_in" to="/camera/depth/Image_rect_raw/Image_topics/points" />
+  </node>
+</launch>
